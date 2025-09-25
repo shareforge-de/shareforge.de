@@ -1,6 +1,6 @@
 # Mkdocs
 root/site/*
-
+ignore/
 # Logs
 logs
 *.log

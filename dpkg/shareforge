@@ -1,0 +1,87 @@
+#!/bin/bash
+
+DEV_MODE=false
+ARG=""
+
+# ARG Variables
+
+CREATE='new'
+DELETE='del'
+BUILD='build'
+MAKE='make'
+SERVE='serve'
+
+
+# Migrate not implemented
+# MIGRATE='migrate'
+# IMPORT='import'
+
+
+# Parse arguments (simple loop for flags and positionals)
+for arg in "$@"; do
+    case $arg in
+        --dev-test)
+            DEV_MODE=true
+            shift  # Remove the flag from processing
+            ;;
+        dev-test)
+            # Treat as positional if not a flag
+            if [ "$DEV_MODE" = false ]; then
+                DEV_MODE=true
+            fi
+            shift
+            ;;
+        *)
+            # Capture other arguments (e.g., the main input)
+            ARG="$arg"
+            shift
+            ;;
+    esac
+done
+
+# 
+if [ "$DEV_MODE" = false ] && [ -z "$ARG" ]; then
+    echo "Usage: shareforge <optional-argument> [--dev-test]"
+    echo "Example: shareforge <arg>"
+    echo "Dev mode: shareforge <arg> --dev-test (or shareforge dev-test)"
+    exit 1
+fi
+
+
+
+
+
+if [[ "${arg}" == "${NEW}" ]]; then
+    echo "Creation Logic Here"
+fi
+
+
+# Main logic
+echo "Hello from shareforge! Main argument: $ARG"
+
+
+
+# Dev-test specific logic (customize this block)
+if [ "$DEV_MODE" = true ]; then
+    
+    echo "=== DEV-TEST MODE ACTIVATED ==="
+    echo "Debug info: Running in development/testing environment."
+    echo "Simulating test: Would run unit tests or verbose logs here."
+    
+    echo ""
+    
+    cpuModel=$(lscpu | grep 'Model name' |cut -d ' ' -f 3- | sed -e 's/^[[:space:]]*//')
+    echo "Model: ${cpuModel}"
+    arch=$(lscpu | grep 'Architecture' |awk '{print $2}' | head -n 1)
+    echo "Architecture: ${arch}"
+    cores=$(lscpu | grep 'CPU(s)' |awk '{print $2}' | head -n 1)
+    echo "Cores: ${cores}"
+    sysMemoryMemTotal=$(grep 'MemTotal' < /proc/meminfo | awk '{print $2}' | head -n 1)
+    echo "RAM (MB): ${sysMemoryMemTotal} "
+    Uptime=$(uptime -p)
+    echo "System Uptime: ${Uptime}"
+
+    echo ""
+    
+    echo "Dev mode complete. Exiting with status 0."
+fi
