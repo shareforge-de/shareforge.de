@@ -21,3 +21,7 @@ theme:
     - search.suggest
     - search.highlight
     - navigation.sections
+
+copyright: Copyright 2025 Kyle Hosting LTD
+site_author:
+repo_url:

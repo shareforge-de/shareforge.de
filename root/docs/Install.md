@@ -3,5 +3,5 @@
 ## Debian or Ubuntu
 
 ```bash
-wget "
+git clone https://github.com/kylehost/shareforge.de.git
 ```
