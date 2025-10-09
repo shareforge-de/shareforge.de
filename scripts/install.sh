@@ -39,8 +39,9 @@ echo ""
 echo ""
 sleep 10s
 
-apt update && apt upgrade -y
-apt install python3 python3-pip docker docker-compose docker.io containerd -y
-
-mkdir /bin/shareforge/
-
+sudo apt update && sudo apt upgrade -y
+sudo apt install mkdocs python3 python3-pip -y
+cd ../
+pip install -r requirements.txt
+cd ./root/
+mkdocs serve
