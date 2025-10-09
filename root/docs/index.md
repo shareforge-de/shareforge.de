@@ -11,4 +11,4 @@ Well its just me right now, developing and maintaining a platform for people to 
 
 ### Donate
 Donate to my:
-- BTC: bc1qkd8kqfu44hc4w0p2re8e8d6al45rlxjap73cj3
+- BTC: `bc1qkd8kqfu44hc4w0p2re8e8d6al45rlxjap73cj3`
