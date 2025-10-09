@@ -10,4 +10,5 @@ Well its just me right now, developing and maintaining a platform for people to 
 [![Built On](https://skillicons.dev/icons?i=git,docker,sqlite,bash,cloudflare,md,py,tailwind&perline=4)](https://shareforge.de)
 
 ### Donate
-Donate to my 
+Donate to my:
+- BTC: bc1qkd8kqfu44hc4w0p2re8e8d6al45rlxjap73cj3
