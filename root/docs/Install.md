@@ -3,5 +3,5 @@
 ## Debian or Ubuntu
 
 ```bash
-git clone https://github.com/kylehost/shareforge.de.git
+git clone https://github.com/shareforge-de/shareforge.de.git
 ```
