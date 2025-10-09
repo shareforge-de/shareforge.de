@@ -36,6 +36,7 @@ jobs:
           cd ./root/
       - name: Build Mkdocs
         run: |
+          cd ./root/
           pip install -r requirements.txt
           mkdocs build
       - name: Setup Pages
