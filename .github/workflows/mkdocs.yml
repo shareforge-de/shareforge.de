@@ -34,6 +34,7 @@ jobs:
         run: |
           sudo apt install mkdocs python3 python3-pip
           cd ./root/
+          pip install -r requirements.txt
           mkdocs build
       - name: Setup Pages
         id: pages
