@@ -1,5 +1,8 @@
 site_name: Share Forge
 
+plugins:
+  - search
+
 theme:
   name: material
   palette:
