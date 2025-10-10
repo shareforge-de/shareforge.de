@@ -1,5 +1,8 @@
 # Installation
 
+# We currently dont have a way to download and run our repository directly!
+### One will soon be available at (https://git.sourceforge.de)[this page]
+
 ## Debian or Ubuntu
 
 ```bash
