@@ -22,6 +22,7 @@ theme:
     - search.highlight
     - navigation.sections
 
+use_directory_urls: true
 copyright: Copyright 2025 Kyle Hosting LTD
 site_author: Kyle Speight
 repo_url: https://github.com/shareforge-de/shareforge.de/
