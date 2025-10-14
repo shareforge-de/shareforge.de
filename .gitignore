@@ -1,5 +1,8 @@
 # Mkdocs
 root/site/*
+
+/root/site/!sitemap.xml 
+
 ignore/
 # Logs
 logs
