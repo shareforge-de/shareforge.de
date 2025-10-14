@@ -1,7 +1,8 @@
 # Installation
 
 # We currently dont have a way to download and run our repository directly!
-### One will soon be available at (https://git.shareforge.de)[this page]
+### One will soon be available at 
+[this page](https://git.shareforge.de)
 
 ## Debian or Ubuntu
 
