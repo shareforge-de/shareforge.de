@@ -39,6 +39,7 @@ jobs:
           cd ./root/
           pip install -r requirements.txt
           mkdocs build
+          mv ./docs/sitemap.xml ./site/sitemap.xml
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
