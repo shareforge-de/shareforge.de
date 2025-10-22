@@ -1,8 +1,5 @@
 site_name: Share Forge
 
-plugins:
-  - search:
-      indexing: 'full'
 
 theme:
   name: material

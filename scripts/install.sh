@@ -37,11 +37,22 @@ echo "Waiting for 10 seconds, Press ^c (ctrl + c) to exit!"
 echo "This Install will use about 1-2 GB of storage!"
 echo ""
 echo ""
+
 sleep 10s
 
 sudo apt update && sudo apt upgrade -y
-sudo apt install mkdocs python3 python3-pip -y
+sudo apt install mkdocs python3 python3-pip python3-mkdocs -y
+clear
 cd ../
+
 pip install -r requirements.txt
-cd ./root/
-mkdocs serve
+
+# Make Directories
+
+mkdir -p /opt/shareforge/admin-panel/
+mkdir -p /opt/shareforge/boxes/
+mkdir -p /opt/shareforge/config/
+mkdir -p /opt/shareforge//
+
+
+cd /opt/shareforge/

@@ -16,9 +16,13 @@
   <lastmod>2025-10-09T00:23:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-
 <url>
   <loc>https://shareforge.de/about-me/</loc>
+  <lastmod>2025-10-09T00:23:14+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://shareforge.de/license/</loc>
   <lastmod>2025-10-09T00:23:14+00:00</lastmod>
   <priority>1.00</priority>
 </url>
