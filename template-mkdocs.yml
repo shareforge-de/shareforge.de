@@ -1,0 +1,28 @@
+theme:
+  name: material
+  palette:
+
+    # Light mode (optional; can be toggled off if you want dark-only)
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Dark mode (default)
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - content.code.copy
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - navigation.sections
+
+# site name gets inserted after script runs

@@ -1,6 +1,7 @@
 # Mkdocs
 root/site/*
 
+
 /root/site/!sitemap.xml 
 
 ignore/
@@ -154,3 +155,4 @@ vendor/
 ptero-egg/
 private/
 ignore/
+.env

@@ -3,7 +3,10 @@
 DEV_MODE=false
 ARG=""
 
+HELP=false
 # ARG Variables
+
+SITE_NAME="Shareforge Template Site"
 
 CREATE='new'
 DELETE='del'
@@ -11,55 +14,97 @@ BUILD='build'
 MAKE='make'
 SERVE='serve'
 
+KEY="hashed time + system name - special characters"
 
-# Migrate not implemented
 # MIGRATE='migrate'
 # IMPORT='import'
 
 
-# Parse arguments (simple loop for flags and positionals)
+# Parse arguments
 for arg in "$@"; do
     case $arg in
+        --help)
+            echo "Usage: shareforge <argument> <optional flag>"
+            echo "Example: shareforge create -n <name> # Makes the project with the specified name"
+            echo "Available Arguments:"
+            echo ""
+            echo "--help | Shows this prompt"
+            echo "Note you must use --help or -h BEFORE the other argument"
+            echo "Ex. | shareforge --help create"
+            echo "create | Creates a new project in the relative directory"
+            HELP=true
+            echo "help isnt implemented fully"
+            echo "$HELP"
+            ;;
         --dev-test)
             DEV_MODE=true
-            shift  # Remove the flag from processing
+            shift
             ;;
         dev-test)
-            # Treat as positional if not a flag
             if [ "$DEV_MODE" = false ]; then
                 DEV_MODE=true
             fi
             shift
             ;;
-        *)
-            # Capture other arguments (e.g., the main input)
-            ARG="$arg"
+        create)
+            for arg in "$@"; do
+                case $arg in
+                    --name)
+                    shift
+                    ;;
+                    -n)
+                    # logic to detect the string afterward
+                    # should set $SITE_NAME to the string after -n (--name)
+                    shift
+                    ;;
+
+                esac
+            done
+            # Help Logic
+            echo "$HELP"
+            if [ "$HELP" = true ]; then
+                echo "Usage of $arg:"
+            fi
+            if [ "$HELP" == false ]; then
+                echo "Creating a new project in the current directory"
+                mkdir -p ./dev-project/docs/
+                cp /var/lib/shareforge/config/default.yml ./dev-project/mkdocs.yml
+                echo "site_name: $SITE_NAME"
+                cp /etc/shareforge/requirements.txt ./dev-project/requirements.txt
+                cp -r /opt/shareforge/default/ ./dev-project/docs/
+                touch ./dev-project/.shareforge
+                cd ./dev-project/
+                echo "$KEY" > .shareforge
+            fi
             shift
+            ;;
+        build)
+            pip install -r requirements.txt
+            mkdocs build
+            clear
+            shift
+            ;;
+        clean-up)
+            shift
+            ;;
+        *)
+            echo "Invalid Argument"
+            shift
+            exit 1
             ;;
     esac
 done
 
-# 
-if [ "$DEV_MODE" = false ] && [ -z "$ARG" ]; then
-    echo "Usage: shareforge <optional-argument> [--dev-test]"
-    echo "Example: shareforge <arg>"
-    echo "Dev mode: shareforge <arg> --dev-test (or shareforge dev-test)"
-    exit 1
-fi
 
-
-
-
-
-if [[ "${arg}" == "${NEW}" ]]; then
-    echo "Creation Logic Here"
-fi
-
-
-# Main logic
-echo "Hello from shareforge! Main argument: $ARG"
-
-
+#if [ "$DEV_MODE" = false ] && [ -z "$ARG" ]; then
+#    echo "Usage: shareforge <optional-argument> [--dev-test]"
+#    echo "Example: shareforge <arg>"
+#    echo "Dev mode: shareforge <arg> --dev-test (or shareforge dev-test)"
+#    exit 1
+#fi
+#if [ "$HELP" =  false ]; then
+#    echo "main logic"    
+#fi
 
 # Dev-test specific logic (customize this block)
 if [ "$DEV_MODE" = true ]; then
@@ -80,8 +125,7 @@ if [ "$DEV_MODE" = true ]; then
     echo "RAM (MB): ${sysMemoryMemTotal} "
     Uptime=$(uptime -p)
     echo "System Uptime: ${Uptime}"
-
     echo ""
-    
     echo "Dev mode complete. Exiting with status 0."
+    exit 0
 fi
