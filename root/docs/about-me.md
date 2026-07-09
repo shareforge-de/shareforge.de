@@ -8,4 +8,4 @@ So guess you want to know a little more about me then? Welp here i am you can ch
 
 
 ### My links
-[https://kyle-speight.de](https://kyle-speight.de)
+[https://chillcog.com](https://chillcog.com)
